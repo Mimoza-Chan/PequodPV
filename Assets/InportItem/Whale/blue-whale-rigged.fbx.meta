@@ -6,6 +6,9 @@ ModelImporter:
   - first:
       74: 4781951162920444690
     second: Armature|ArmatureAction
+  - first:
+      74: -1422011007694221501
+    second: Armature|ArmatureAction.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -27,16 +30,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material.003
     second: {fileID: 2100000, guid: a0734bd5247fc3b429074c92dd66da1a, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: baleen
-    second: {fileID: 2800000, guid: 8e9596131179adb4f9caa744109a5f8b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: tongue
-    second: {fileID: 2800000, guid: 465dae8611cb7eb4eb1c2422719a99ea, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

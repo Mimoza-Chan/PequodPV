@@ -3,7 +3,57 @@ guid: 14d58966de6607b4b8944e14a317b632
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Earth
+    second: {fileID: 2100000, guid: 85b4878148798434cb163f578ccbd99e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jupiter
+    second: {fileID: 2100000, guid: 7cba7cda90296ae42b400dbad970c88c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars
+    second: {fileID: 2100000, guid: 3b9adc2fa1da5a84fae364a864f3bd5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mercury
+    second: {fileID: 2100000, guid: 48b30f46dc89e964aa59dcd80ecfb512, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neptune
+    second: {fileID: 2100000, guid: 8a9d1148d2e2f5743aaad75440325a3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saturn
+    second: {fileID: 2100000, guid: d5cef55c2796c074d9fc1ff7a5caa8b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SaturnRing
+    second: {fileID: 2100000, guid: 04ecad83a8801054b9f91cc1b00023a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sun
+    second: {fileID: 2100000, guid: 82ced771b0395fd409a051c26c6c5824, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Uranus
+    second: {fileID: 2100000, guid: 4437915b751edb74692f9f905bbce69e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Venus
+    second: {fileID: 2100000, guid: 413596cc98528c844bd030df39a1a339, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

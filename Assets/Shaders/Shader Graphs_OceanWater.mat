@@ -176,7 +176,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _FoamDistance: -0.2
-    - _FoamStrength: -2.02
+    - _FoamStrength: 1
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -197,7 +197,7 @@ Material:
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
-    - _Normal_Strength: 0.37
+    - _Normal_Strength: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -210,7 +210,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.8
+    - _Smoothness: 1
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -247,9 +247,9 @@ Material:
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
     - _WaterDepth: 1
-    - _WaveScale: 1
-    - _WaveSpeed: 1
-    - _WaveStrength: 0.1
+    - _WaveScale: 0.01
+    - _WaveSpeed: 4.51
+    - _WaveStrength: 500
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
@@ -273,11 +273,11 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
-    - _WaterA: {r: 0, g: 0.69129753, b: 1, a: 1}
-    - _WaterB: {r: 0.05406728, g: 0.36966002, b: 0.764151, a: 1}
+    - _WaterA: {r: 0, g: 0.45578986, b: 0.6603774, a: 1}
+    - _WaterB: {r: 0.015797434, g: 0.30486435, b: 0.6698113, a: 1}
     - _WaveDirectionA: {r: 1, g: 0.3, b: 0, a: 0}
-    - _WaveDirectionB: {r: -1, g: 0.3, b: 0, a: 0}
-    - _WaveTiling: {r: 0.022, g: 0.1, b: 0, a: 0}
+    - _WaveDirectionB: {r: -1, g: -0.3, b: 0, a: 0}
+    - _WaveTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &412731471050053147
 MonoBehaviour:

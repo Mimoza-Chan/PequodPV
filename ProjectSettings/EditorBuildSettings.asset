@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PV.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/PV2.unity
+    guid: d3bb91fa4569e8349ad18ce9ccecb705
   m_configObjects: {}
