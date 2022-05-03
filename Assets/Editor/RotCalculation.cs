@@ -8,13 +8,17 @@ using System;
 public class Calculation : EditorWindow
 {
     GameObject planet;
-    GameObject[] Text = new GameObject[] {};
+    Transform[] Text = new Transform[] {};
     int radius;
     int dividValue;
+    float dividRange;
     float maxRandomValue;
     float interval;
     float nullInterval;
+    float textRadius;
     int TextCount;
+    bool isCicle;
+    float startPoint;
 
     [MenuItem("Tools/Calculate")]
     public static void Excute()
@@ -33,14 +37,16 @@ public class Calculation : EditorWindow
             radius = EditorGUILayout.IntField("Radius", radius);
             GUILayout.Label("Enter minus value to set the angle over 180");
             dividValue = EditorGUILayout.IntField("Polygon value", dividValue);
+
             if (GUILayout.Button("Apply"))
             {
-                planet.transform.position = Calculate(radius, dividValue);
+                planet.transform.position = OrbitCalculation(radius, dividValue);
             }
+
             GUILayout.Label("Text Cal");
-            TextCount = EditorGUILayout.IntField("Text Count", TextCount);
-            interval = EditorGUILayout.FloatField("Text Interval", interval);
-            nullInterval = EditorGUILayout.FloatField("Text Null Interval", nullInterval);
+            TextCount = EditorGUILayout.IntSlider("Text Count", TextCount, 0, 20);
+            interval = EditorGUILayout.Slider("Text Interval", interval, 0, 1);
+            nullInterval = EditorGUILayout.Slider("Text Null Interval", nullInterval, 0, 1);
 
             if (TextCount != Text.Length)
             {
@@ -48,35 +54,53 @@ public class Calculation : EditorWindow
             }
             for (int i = 0;i < TextCount;i++)
             {
-                Text[i] = (GameObject)EditorGUILayout.ObjectField($"Text No.{i}", Text[i], typeof(GameObject), true);
+                Text[i] = (Transform)EditorGUILayout.ObjectField($"Text No.{i}", Text[i], typeof(Transform), true);
             }
             if (GUILayout.Button("Apply"))
             {
-                float totalvalue = 0;
-                for (int i = 0;i < Text.Length;i++)
-                {
-                    if (Text[i] == null)
-                    {
-                        totalvalue += nullInterval;
-                    }
-                    else
-                    {
-                        Text[i].transform.localPosition = new Vector3(totalvalue, 0, 0);
-                        totalvalue += interval;
-                    }
-                }
+                if (!isCicle) TextPosition(Text);
             }
             if (GUILayout.Button("Reset"))
             {
-                Text = new GameObject[] {};
+                Text = new Transform[] {};
                 TextCount = 0;
             }
         }
         
     }
 
-    Vector3 Calculate(int r, int n)
+    Vector3 OrbitCalculation(float r, float n)
     {
         return new Vector3( r * MathF.Cos(MathF.PI / n), 0, r * Mathf.Sin(Mathf.PI / n));
+    }
+
+    void TextPosition(Transform [] Text)
+    {
+        float totalvalue = 0;
+        for (int i = 0;i < Text.Length;i++)
+        {
+            if (Text[i] == null)
+            {
+                totalvalue += nullInterval;
+            }
+            else
+            {
+                totalvalue += interval;
+            }
+        }
+        // Reuse float value...
+        totalvalue = -1 * (totalvalue / 2);
+        foreach (Transform tr in Text)
+        {
+            if (tr == null)
+            {
+                totalvalue += nullInterval;
+            }
+            else
+            {
+                tr.localPosition = new Vector3(totalvalue,0,0);
+                totalvalue += interval;
+            }
+        }
     }
 }

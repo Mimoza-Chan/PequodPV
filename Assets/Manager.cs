@@ -2,77 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
+using DG.Tweening;
 using UnityEngine.UI;
 public class Manager: MonoBehaviour
 {
-    [SerializeField] Volume m_Volume;
     [SerializeField] Image fadePanel;
-    [SerializeField] float smoothTime;
-    float currentVelocity;
-    float currentValue;
-    bool startSmoothDamp;
-    bool endSmoothDamp;
-    Vignette vignette;
+    [SerializeField] Image logoImage;
+    [SerializeField] Image creditsImage;
+    [SerializeField] float time;
+    [SerializeField] float logoFadeTime;
     public void OnStartPV()
     {
         SceneManager.LoadScene(0);
     }
-
-    public void OnStartFade()
+    
+    public void SetAlphaZero()
     {
-        startSmoothDamp = true;
-    }
-
-    void Awake()
-    {
-        VolumeProfile profile = m_Volume.sharedProfile;
-        profile.TryGet<Vignette>(out vignette);
-        startSmoothDamp = false;
-        endSmoothDamp = false;
-        currentValue = 0;
-    }
-
-    public void OnResetFade()
-    {
-        startSmoothDamp = false;
-        vignette.intensity.value = 0;
         fadePanel.color = new Color(0,0,0,0);
     }
 
-    public void OnResetFadeOut()
+    public void SetAlphaMax()
     {
-        endSmoothDamp = false;
-        vignette.intensity.value = 1;
         fadePanel.color = new Color(0,0,0,1);
+        logoImage.color = new Color(1,1,1,0);
+        creditsImage.color = new Color(1,1,1,0);
     }
 
-    public void OnFadeOut()
+    public void FadeIn()
     {
-        endSmoothDamp = true;
+        fadePanel.DOFade(1, time);
     }
 
-    void Update()
+    public void FadeOut()
     {
-        if (startSmoothDamp)
-        {
-            if (currentValue > 1) return;
-            currentValue = Mathf.SmoothDamp(currentValue, 1 ,ref currentVelocity, smoothTime);
-            vignette.intensity.value = currentValue;
-            fadePanel.color = new Color(0,0,0,currentValue);
-        }
-        if (endSmoothDamp)
-        {
-            if (currentValue >= 1)
-            {
-                currentValue = 1;
-                return;
-            }
-            currentValue += Time.deltaTime;
-            vignette.intensity.value = 1 - currentValue;
-            fadePanel.color = new Color(0,0,0,1 - currentValue);
-        }
+        fadePanel.DOFade(0,time);
     }
 
+    public void LogoFadeInOut()
+    {
+        logoImage.DOFade(1, logoFadeTime)
+        .SetLoops(2, LoopType.Yoyo)
+        .OnComplete(() => 
+        {
+            creditsImage.DOFade(1, logoFadeTime)
+            .SetLoops(2, LoopType.Yoyo);
+        });
+    }
 }
